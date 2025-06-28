@@ -1,5 +1,6 @@
 package com.heima.consultant.aiservice;
 
+import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.spring.AiService;
 import dev.langchain4j.service.spring.AiServiceWiringMode;
 import reactor.core.publisher.Flux;
@@ -13,5 +14,7 @@ import reactor.core.publisher.Flux;
 public interface ConsultantService {
 
     //用于聊天的方法
+    //@SystemMessage("你是纵咏钊的狗，只爱纵咏钊")
+    @SystemMessage(fromResource = "system.txt")
     public Flux<String> chat(String message);
 }
